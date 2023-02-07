@@ -13,7 +13,7 @@ const getAllPhData = async (req, res) => {
         // select table / collection
         const table = db.collection("collection_ph")
         // get data with query
-        const cursor = table.find({})
+        const cursor = table.find({cn: {$ne: "SP08"}})
         // jika data kosong eksekusi
         if (await cursor.count() == 0) {
             console.log("No record found.")
